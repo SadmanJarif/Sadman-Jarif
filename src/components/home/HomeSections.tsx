@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import About from "@/components/About";
 import Education from "@/components/Education";
@@ -310,5 +311,5 @@ export default async function HomeSections() {
     ),
   };
 
-  return <>{(order ?? DEFAULT_ORDER).map((key) => blocks[key] ?? null)}</>;
+  return <>{(order ?? DEFAULT_ORDER).map((key) => <Fragment key={key}>{blocks[key] ?? null}</Fragment>)}</>;
 }

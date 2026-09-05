@@ -71,7 +71,7 @@ export function MediaLibraryModal({
               Library is empty. Upload images from the <span className="font-semibold text-slate-300">Media</span> page first.
             </p>
           ) : (
-            <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {items.map((m) => (
                 <button
                   key={m.id}

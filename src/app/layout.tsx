@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
+import SiteChrome from "@/components/SiteChrome";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import GlobalSilk from "@/components/GlobalSilk";
 import { getNav } from "@/lib/cms";
@@ -78,10 +76,9 @@ export default async function RootLayout({
       <body className="bg-[#0B1128] text-slate-100 antialiased light:bg-[#f3f5fa] light:text-slate-700">
         <ThemeProvider>
           <GlobalSilk />
-          <Header nav={main} more={more} />
-          {children}
-          <Footer />
-          <BackToTop />
+          <SiteChrome nav={main} more={more}>
+            {children}
+          </SiteChrome>
         </ThemeProvider>
       </body>
     </html>

@@ -109,7 +109,7 @@ export default function SeoEditor({ initial }: { initial: Row[] }) {
         <div className="grid h-fit gap-1.5">
           {visible.map((r) => (
             <button key={`${r.path}-${r.i}`} onClick={() => setSelected(r.i)}
-              className={`rounded-xl px-4 py-2.5 text-left font-mono text-[12.5px] transition-all ${selected === r.i ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900" : "text-slate-400 hover:bg-white/[0.04] hover:text-white light:text-slate-500 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"}`}>
+              className={`break-all rounded-xl px-4 py-2.5 text-left font-mono text-[12.5px] transition-all ${selected === r.i ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900" : "text-slate-400 hover:bg-white/[0.04] hover:text-white light:text-slate-500 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"}`}>
               {r.path || "/"}
             </button>
           ))}

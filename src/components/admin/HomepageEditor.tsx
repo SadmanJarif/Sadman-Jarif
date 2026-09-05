@@ -52,7 +52,7 @@ export default function HomepageEditor({ initial }: { initial: Row[] }) {
       )}
       <div className="mx-auto mt-5 grid max-w-3xl gap-2">
         {rows.map((r, i) => (
-          <div key={r.id} className={`glass flex items-center gap-3 rounded-2xl p-3.5 ${r.enabled ? "" : "opacity-55"}`}>
+          <div key={r.id} className={`glass flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl p-3.5 ${r.enabled ? "" : "opacity-55"}`}>
             <span className="font-mono text-[11px] text-slate-600">{String(i + 1).padStart(2, "0")}</span>
             <div className="min-w-0 flex-1">
               <p className="truncate text-[13.5px] font-bold text-white light:text-slate-900">{r.label}</p>
