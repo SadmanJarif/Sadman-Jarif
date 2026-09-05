@@ -32,7 +32,7 @@ export default function ContactView({ socials: SOCIALS }: { socials: ContactSoci
   };
 
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="Contact"
         title="Have an idea, opportunity,"
@@ -59,7 +59,7 @@ export default function ContactView({ socials: SOCIALS }: { socials: ContactSoci
                       <p className={`text-[13.5px] font-bold ${form.topic === o.title ? "text-cyan-200 light:text-cyan-800" : "text-white light:text-slate-800"}`}>
                         {o.title}
                       </p>
-                      <p className="mt-1 text-[12px] leading-relaxed text-slate-400 light:text-slate-600">{o.text}</p>
+                      <p className="mt-1 text-[12px] leading-relaxed text-slate-300 light:text-slate-600">{o.text}</p>
                     </button>
                   </Reveal>
                 ))}
@@ -93,12 +93,12 @@ export default function ContactView({ socials: SOCIALS }: { socials: ContactSoci
                     <div>
                       <label htmlFor="name" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">Your name</label>
                       <input id="name" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Jane Cooper"
-                        className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
+                        className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-400 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
                     </div>
                     <div>
                       <label htmlFor="email" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">Email</label>
                       <input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="jane@company.com"
-                        className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
+                        className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-400 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
                     </div>
                   </div>
                   <div>
@@ -114,7 +114,7 @@ export default function ContactView({ socials: SOCIALS }: { socials: ContactSoci
                     <label htmlFor="message" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">Message</label>
                     <textarea id="message" required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Tell me about your idea, opportunity, or project — timelines and links help…"
-                      className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
+                      className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-400 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
                   </div>
                   <button type="submit" className="btn-primary rounded-xl px-6 py-3.5 text-[14px] font-bold text-white">
                     {sent ? (
@@ -125,7 +125,7 @@ export default function ContactView({ socials: SOCIALS }: { socials: ContactSoci
                       `Send about “${form.topic}”`
                     )}
                   </button>
-                  <p className="text-center text-[12px] text-slate-600">Prefer email directly? {SOCIALS.email.replace(/^mailto:/, "")}</p>
+                  <p className="text-center text-[12px] text-slate-200">Prefer email directly? {SOCIALS.email.replace(/^mailto:/, "")}</p>
                 </form>
               </div>
             </Reveal>

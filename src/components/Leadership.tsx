@@ -36,7 +36,7 @@ export default async function Leadership() {
                   {a.icon}
                 </span>
                 <h3 className="font-display mt-3 text-[14.5px] font-bold text-white light:text-slate-900">{a.title}</h3>
-                <p className="mt-1 line-clamp-3 text-[12.5px] leading-relaxed text-slate-400 light:text-slate-600">{a.text}</p>
+                <p className="mt-1 line-clamp-3 text-[12.5px] leading-relaxed text-slate-300 light:text-slate-600">{a.text}</p>
               </div>
             </Reveal>
           ))}
@@ -47,7 +47,7 @@ export default async function Leadership() {
             <p className="font-display text-[15px] font-bold text-white sm:text-base light:text-slate-900">
               Impact • Curiosity • Leadership • Continuous growth
             </p>
-            <p className="mx-auto mt-2 max-w-xl text-[13.5px] leading-relaxed text-slate-400">
+            <p className="mx-auto mt-2 max-w-xl text-[13.5px] leading-relaxed text-slate-300">
               The thread connecting everything: I like starting things, learning fast, and leaving
               places slightly better than I found them.
             </p>

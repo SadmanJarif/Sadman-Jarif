@@ -19,7 +19,7 @@ const ACCENTS = ["from-cyan-400 to-blue-500", "from-violet-400 to-purple-500", "
 export default async function WorkPage() {
   const EXPERIENCE_DETAILS = await getExperience();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="Work / Experience"
         title="Progressive responsibility,"
@@ -40,23 +40,23 @@ export default async function WorkPage() {
                       Current
                     </span>
                   )}
-                  <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-500">
+                  <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-300">
                     {r.time} • {r.place}
                   </span>
                 </div>
                 <h2 className="font-display mt-3 text-xl font-bold text-white sm:text-2xl light:text-slate-900">
-                  {r.role} <span className="text-slate-500">—</span>{" "}
+                  {r.role} <span className="text-slate-300">—</span>{" "}
                   <span className="text-gradient-cyan">{r.org}</span>
                 </h2>
-                <p className="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-400 light:text-slate-600">{r.summary}</p>
+                <p className="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-slate-300 light:text-slate-600">{r.summary}</p>
 
                 <div className="mt-7 grid gap-6 lg:grid-cols-2">
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Responsibilities</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300">Responsibilities</p>
                     <ul className="mt-3 space-y-2.5">
                       {r.responsibilities.map((x) => (
                         <li key={x} className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-slate-300 light:text-slate-700">
-                          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-cyan-400/10 text-cyan-300 light:text-cyan-800">
+                          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-cyan-400/10 text-cyan-200 light:text-cyan-800">
                             <CheckIcon className="h-3 w-3" />
                           </span>
                           {x}
@@ -99,7 +99,7 @@ export default async function WorkPage() {
           <Reveal delay={100}>
             <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.01] p-7 text-center sm:p-10 light:border-slate-900/10 light:from-white light:to-slate-50 light:shadow-[0_18px_50px_-24px_rgba(15,23,42,0.18)]">
               <h3 className="font-display text-xl font-bold text-white light:text-slate-900">{FREELANCE_INFO.title}</h3>
-              <p className="mx-auto mt-3 max-w-xl text-[14px] leading-relaxed text-slate-400 light:text-slate-600">{FREELANCE_INFO.text}</p>
+              <p className="mx-auto mt-3 max-w-xl text-[14px] leading-relaxed text-slate-300 light:text-slate-600">{FREELANCE_INFO.text}</p>
               <div className="mt-5 flex flex-wrap justify-center gap-2">
                 {FREELANCE_INFO.items.map((t) => (
                   <span key={t} className="rounded-full border border-white/10 bg-[#0a0f1e]/70 px-4 py-2 text-[12.5px] font-medium text-slate-200 light:border-slate-900/10 light:bg-white light:text-slate-600 light:shadow-sm">
@@ -114,7 +114,7 @@ export default async function WorkPage() {
           </Reveal>
           <Reveal delay={120}>
             <div className="mt-8 text-center">
-              <Link href="/resume" className="text-[14px] font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
+              <Link href="/resume" className="text-[14px] font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
                 Prefer the one-page version? See my resume →
               </Link>
             </div>

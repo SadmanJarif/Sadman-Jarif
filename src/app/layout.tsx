@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import GlobalSilk from "@/components/GlobalSilk";
 import { getNav } from "@/lib/cms";
 
 export const metadata: Metadata = {
@@ -74,8 +75,9 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="bg-[#04060d] text-slate-100 antialiased light:bg-[#f3f5fa] light:text-slate-700">
+      <body className="bg-[#0B1128] text-slate-100 antialiased light:bg-[#f3f5fa] light:text-slate-700">
         <ThemeProvider>
+          <GlobalSilk />
           <Header nav={main} more={more} />
           {children}
           <Footer />

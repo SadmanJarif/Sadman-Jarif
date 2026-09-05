@@ -15,12 +15,12 @@ export default function PageHero({ eyebrow, title, highlight, description, crumb
       <div className="pointer-events-none absolute inset-0">
         <div className="grid-bg absolute inset-0" />
         <div className="absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500/20 via-indigo-600/25 to-fuchsia-600/20 blur-[120px] light:from-cyan-300/30 light:via-indigo-300/30 light:to-fuchsia-300/25" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#04060d] to-transparent light:from-[#f3f5fa]" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-transparent to-transparent light:from-[#f3f5fa]" />
       </div>
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         {crumbs && (
           <Reveal>
-            <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[12.5px] font-medium text-slate-500">
+            <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[12.5px] font-medium text-slate-300">
               {crumbs.map((c, i) => (
                 <span key={c.label} className="flex items-center gap-1.5">
                   {i > 0 && <span className="text-slate-700 light:text-slate-300">/</span>}
@@ -49,7 +49,7 @@ export default function PageHero({ eyebrow, title, highlight, description, crumb
         </Reveal>
         {description && (
           <Reveal delay={180}>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-slate-400 sm:text-[17px] light:text-slate-600">
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-slate-300 sm:text-[17px] light:text-slate-600">
               {description}
             </p>
           </Reveal>

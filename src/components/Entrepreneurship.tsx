@@ -52,7 +52,7 @@ export default function Entrepreneurship() {
                   <span className="font-semibold text-white light:text-slate-900">automate work, operate efficiently and
                   build digital businesses</span>. Small teams, real revenue, global reach.
                 </p>
-                <p className="mt-4 max-w-lg text-[14px] leading-relaxed text-slate-400 light:text-slate-600">
+                <p className="mt-4 max-w-lg text-[14px] leading-relaxed text-slate-300 light:text-slate-600">
                   Visionary? Maybe a little. But grounded: start with useful automations, charge for
                   outcomes, reinvest into bigger products.
                 </p>
@@ -73,7 +73,7 @@ export default function Entrepreneurship() {
                         {p.icon}
                       </span>
                       <h3 className="font-display mt-3.5 text-[15px] font-bold text-white light:text-slate-900">{p.title}</h3>
-                      <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{p.text}</p>
+                      <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{p.text}</p>
                     </div>
                   </Reveal>
                 ))}

@@ -23,7 +23,7 @@ export default function SectionHeading({ eyebrow, title, highlight, description,
         {highlight ? <span className="text-gradient-cyan">{highlight}</span> : null}
       </h2>
       {description ? (
-        <p className="mt-4 text-[15px] leading-relaxed text-slate-400 sm:text-base light:text-slate-600">{description}</p>
+        <p className="mt-4 text-[15px] leading-relaxed text-slate-300 sm:text-base light:text-slate-600">{description}</p>
       ) : null}
     </Reveal>
   );

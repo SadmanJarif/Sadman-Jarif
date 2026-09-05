@@ -45,7 +45,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const { post, related } = found;
 
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <ReadingProgress />
 
       {/* Cover */}
@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </div>
         <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
           <Reveal>
-            <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[12.5px] font-medium text-slate-500">
+            <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[12.5px] font-medium text-slate-300">
               <Link href="/" className="transition-colors hover:text-cyan-300">Home</Link>
               <span className="text-slate-700">/</span>
               <Link href="/writing" className="transition-colors hover:text-cyan-300">Writing</Link>
@@ -72,7 +72,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <h1 className="font-display mt-5 text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-[2.75rem] light:text-slate-900">
               {post.title}
             </h1>
-            <p className="mt-4 text-[16px] leading-relaxed text-slate-400 light:text-slate-600">{post.subtitle}</p>
+            <p className="mt-4 text-[16px] leading-relaxed text-slate-300 light:text-slate-600">{post.subtitle}</p>
           </Reveal>
           <Reveal delay={140}>
             <div className="mt-7 flex flex-wrap items-center gap-4 border-y border-white/[0.08] py-4 light:border-slate-900/10">
@@ -81,16 +81,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               </span>
               <div>
                 <p className="text-[14px] font-bold text-white light:text-slate-900">Sadman Mubassir Jarif</p>
-                <p className="text-[12.5px] text-slate-500">{post.date} • {post.readTime}</p>
+                <p className="text-[12.5px] text-slate-300">{post.date} • {post.readTime}</p>
               </div>
               <div className="ml-auto flex gap-2">
-                <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Share on GitHub" className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-400 transition-all hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-500 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900">
+                <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Share on GitHub" className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition-all hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-500 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900">
                   <GithubIcon className="h-4 w-4" />
                 </a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="Share on LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-400 transition-all hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-500 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="Share on LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition-all hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-500 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900">
                   <LinkedinIcon className="h-4 w-4" />
                 </a>
-                <a href="mailto:hello@sadmanjarif.dev" aria-label="Share via email" className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-400 transition-all hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-500 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900">
+                <a href="mailto:hello@sadmanjarif.dev" aria-label="Share via email" className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-slate-300 transition-all hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-500 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900">
                   <MailIcon className="h-4 w-4" />
                 </a>
               </div>
@@ -122,7 +122,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <Reveal>
             <div className="mt-12 rounded-3xl border border-white/[0.08] bg-white/[0.03] p-7 text-center light:border-slate-900/10 light:bg-white light:shadow-[0_18px_50px_-24px_rgba(15,23,42,0.18)]">
               <p className="font-display text-[16px] font-bold text-white light:text-slate-900">Enjoyed this? Let&apos;s talk about it.</p>
-              <p className="mx-auto mt-2 max-w-md text-[13.5px] text-slate-500">
+              <p className="mx-auto mt-2 max-w-md text-[13.5px] text-slate-300">
                 I write to think clearly. If this sparked an idea — a project, a disagreement, a collaboration — I want to hear it.
               </p>
               <Link href="/contact" className="btn-primary mt-5 inline-flex rounded-full px-6 py-2.5 text-[13.5px] font-semibold text-white">
@@ -147,8 +147,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     {r.category}
                   </span>
                   <h3 className="font-display mt-3 text-[16px] font-bold leading-snug text-white light:text-slate-900">{r.title}</h3>
-                  <p className="mt-2 text-[13px] text-slate-400 light:text-slate-600">{r.excerpt}</p>
-                  <p className="mt-3 text-[12px] font-medium text-slate-500">{r.date} • {r.readTime}</p>
+                  <p className="mt-2 text-[13px] text-slate-300 light:text-slate-600">{r.excerpt}</p>
+                  <p className="mt-3 text-[12px] font-medium text-slate-300">{r.date} • {r.readTime}</p>
                 </Link>
               </Reveal>
             ))}

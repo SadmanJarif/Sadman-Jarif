@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
   color-scheme: dark;
 }
 
@@ -35,11 +36,30 @@ html.light {
 }
 
 body {
-  background: #04060d;
+  background: #0b1128;
   color: #eef2ff;
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Display type stays crisp over the animated dark backdrop */
+html:not(.light) .font-display {
+  text-shadow: 0 2px 26px rgba(2, 6, 23, 0.5);
+}
+
+/* Gradient headlines keep separation from the blue flows */
+html:not(.light) .text-gradient,
+html:not(.light) .text-gradient-cyan {
+  filter: drop-shadow(0 2px 18px rgba(2, 6, 23, 0.65));
+}
+
+/* Full-page faint white grid laid over the dark Silk backdrop */
+.bg-grid-global {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
 }
 
 html.light body {

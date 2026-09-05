@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ECAPage() {
   const ECA_DETAILS = await getEcaFull();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="ECA & Leadership"
         title="More than"
@@ -36,14 +36,14 @@ export default async function ECAPage() {
                     </span>
                     <h2 className="font-display mt-4 text-xl font-bold text-white light:text-slate-900">{a.title}</h2>
                     {[a.org, a.position, a.date].filter(Boolean).length > 0 && (
-                      <p className="mt-1.5 text-[12.5px] font-medium text-slate-500">
+                      <p className="mt-1.5 text-[12.5px] font-medium text-slate-300">
                         {[a.org, a.position, a.date].filter(Boolean).join(" • ")}
                       </p>
                     )}
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     {[
-                      { t: "What I did", d: a.did, c: "text-cyan-300 light:text-cyan-800" },
+                      { t: "What I did", d: a.did, c: "text-cyan-200 light:text-cyan-800" },
                       { t: "Why I joined", d: a.why, c: "text-violet-300 light:text-violet-800" },
                       { t: "What I learned", d: a.learned, c: "text-amber-300 light:text-amber-800" },
                       { t: "Impact I created", d: a.impact, c: "text-emerald-300 light:text-emerald-800" },
@@ -64,11 +64,11 @@ export default async function ECAPage() {
               <p className="font-display text-[16px] font-bold text-white sm:text-lg light:text-slate-900">
                 Impact • Curiosity • Leadership • Continuous growth
               </p>
-              <p className="mx-auto mt-2 max-w-xl text-[13.5px] leading-relaxed text-slate-400 light:text-slate-600">
+              <p className="mx-auto mt-2 max-w-xl text-[13.5px] leading-relaxed text-slate-300 light:text-slate-600">
                 The thread connecting everything: starting things, learning fast, and leaving places
                 slightly better than I found them.
               </p>
-              <Link href="/contact" className="group mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-300 hover:text-cyan-200">
+              <Link href="/contact" className="group mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-200 hover:text-cyan-200">
                 Want me on your team or program? <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

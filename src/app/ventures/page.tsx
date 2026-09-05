@@ -18,7 +18,7 @@ const FOCUS = ["AI agents", "AI automation", "SaaS", "One-person businesses", "D
 export default async function VenturesPage() {
   const [VENTURE_IDEAS, BUILD_LOG] = await Promise.all([getIdeas(), getBuildLog()]);
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="Entrepreneurship"
         title="I don't just want a job."
@@ -58,7 +58,7 @@ export default async function VenturesPage() {
                       </span>
                     </div>
                     <h3 className="font-display mt-3 text-lg font-bold text-white light:text-slate-900">{v.title}</h3>
-                    <p className="mt-2 text-[13.5px] leading-relaxed text-slate-400 light:text-slate-600">{v.text}</p>
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-slate-300 light:text-slate-600">{v.text}</p>
                   </div>
                 </Reveal>
               ))}
@@ -89,7 +89,7 @@ export default async function VenturesPage() {
                 </Reveal>
               ))}
               <Reveal delay={100}>
-                <div className="rounded-2xl border border-dashed border-white/15 p-5 pl-12 text-[13px] text-slate-500">
+                <div className="rounded-2xl border border-dashed border-white/15 p-5 pl-12 text-[13px] text-slate-300">
                   Next entry ships when the work does. That&apos;s the deal.
                 </div>
               </Reveal>

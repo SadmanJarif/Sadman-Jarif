@@ -33,7 +33,7 @@ const PHILOSOPHY = [
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="About Me"
         title="A builder from Bangladesh,"
@@ -47,9 +47,9 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-6 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
             <div className="glass h-full rounded-3xl p-7 sm:p-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">My Story</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200">My Story</p>
               <h2 className="font-display mt-3 text-2xl font-bold text-white sm:text-3xl light:text-slate-900">How curiosity became a career plan</h2>
-              <div className="mt-5 space-y-4 text-[14.5px] leading-relaxed text-slate-400 light:text-slate-600">
+              <div className="mt-5 space-y-4 text-[14.5px] leading-relaxed text-slate-300 light:text-slate-600">
                 <p>
                   I grew up in Bangladesh with an ordinary education and an extraordinary internet connection.
                   While school taught me the syllabus, the internet taught me something bigger: that a kid
@@ -81,11 +81,11 @@ export default function AboutPage() {
               <div className="gradient-border rounded-3xl p-7">
                 <p className="font-display text-lg font-bold text-white light:text-slate-900">The short version</p>
                 <ul className="mt-4 space-y-3 text-[13.5px] leading-relaxed text-slate-300 light:text-slate-700">
-                  <li><span className="font-bold text-cyan-300">Where:</span> Bangladesh → remote world → global ambitions</li>
-                  <li><span className="font-bold text-cyan-300">Studying:</span> CS @ University of the People</li>
-                  <li><span className="font-bold text-cyan-300">Building:</span> AI agents, automation, web & mobile apps</li>
-                  <li><span className="font-bold text-cyan-300">Exploring:</span> SaaS, one-person businesses, EdTech</li>
-                  <li><span className="font-bold text-cyan-300">Open to:</span> internships, collabs, research, ventures</li>
+                  <li><span className="font-bold text-cyan-200">Where:</span> Bangladesh → remote world → global ambitions</li>
+                  <li><span className="font-bold text-cyan-200">Studying:</span> CS @ University of the People</li>
+                  <li><span className="font-bold text-cyan-200">Building:</span> AI agents, automation, web & mobile apps</li>
+                  <li><span className="font-bold text-cyan-200">Exploring:</span> SaaS, one-person businesses, EdTech</li>
+                  <li><span className="font-bold text-cyan-200">Open to:</span> internships, collabs, research, ventures</li>
                 </ul>
               </div>
               <div className="glass rounded-3xl p-7">
@@ -107,7 +107,7 @@ export default function AboutPage() {
       <section className="section-glow relative py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="max-w-2xl">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">What drives me</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200">What drives me</p>
             <h2 className="font-display mt-3 text-2xl font-bold text-white sm:text-3xl light:text-slate-900">Four engines, running daily</h2>
           </Reveal>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -118,7 +118,7 @@ export default function AboutPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-display mt-2 text-[16px] font-bold text-white light:text-slate-900">{d.title}</h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{d.text}</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{d.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -130,9 +130,9 @@ export default function AboutPage() {
       <section className="relative py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">What I believe</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200">What I believe</p>
             <h2 className="font-display mt-3 text-2xl font-bold text-white sm:text-3xl light:text-slate-900">Learn → Build → Experiment → Improve → Share</h2>
-            <p className="mt-3 text-[14px] text-slate-400 light:text-slate-600">A loop, not a ladder. I run it on everything — courses, products, even this website.</p>
+            <p className="mt-3 text-[14px] text-slate-300 light:text-slate-600">A loop, not a ladder. I run it on everything — courses, products, even this website.</p>
           </Reveal>
           <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-3">
             {PHILOSOPHY.map((p, i) => (
@@ -143,7 +143,7 @@ export default function AboutPage() {
                   </span>
                   <div>
                     <h3 className="font-display text-[16px] font-bold text-white light:text-slate-900">{p.step}</h3>
-                    <p className="mt-0.5 text-[13.5px] text-slate-400 light:text-slate-600">{p.text}</p>
+                    <p className="mt-0.5 text-[13.5px] text-slate-300 light:text-slate-600">{p.text}</p>
                   </div>
                 </div>
               </Reveal>
@@ -156,7 +156,7 @@ export default function AboutPage() {
       <section className="section-glow relative py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300">Personal interests</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200">Personal interests</p>
             <h2 className="font-display mt-3 text-2xl font-bold text-white sm:text-3xl light:text-slate-900">What I enjoy exploring</h2>
           </Reveal>
           <Reveal delay={100}>

@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function UsesPage() {
   const USES_DATA = await getUses();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="My Setup"
         title="Tools I"
@@ -31,7 +31,7 @@ export default async function UsesPage() {
                   {s.items.map((t) => (
                     <li key={t.name}>
                       <p className="text-[13.5px] font-bold text-cyan-200 light:text-cyan-800">{t.name}</p>
-                      <p className="mt-0.5 text-[12.5px] leading-relaxed text-slate-400 light:text-slate-600">{t.desc}</p>
+                      <p className="mt-0.5 text-[12.5px] leading-relaxed text-slate-300 light:text-slate-600">{t.desc}</p>
                     </li>
                   ))}
                 </ul>

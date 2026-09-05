@@ -22,7 +22,7 @@ const KIND_STYLES: Record<string, string> = {
 
 export default function AILabPage() {
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="AI Lab 🧪"
         title="Experiments over"
@@ -41,7 +41,7 @@ export default function AILabPage() {
                   {a.icon}
                 </span>
                 <h2 className="font-display relative mt-4 text-[16px] font-bold text-white light:text-slate-900">{a.title}</h2>
-                <p className="relative mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{a.text}</p>
+                <p className="relative mt-1.5 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{a.text}</p>
               </div>
             </Reveal>
           ))}
@@ -52,10 +52,10 @@ export default function AILabPage() {
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-300 light:text-cyan-800">Workbench</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200 light:text-cyan-800">Workbench</p>
               <h2 className="font-display mt-2 text-2xl font-bold text-white sm:text-3xl light:text-slate-900">Prototypes, ideas & research notes</h2>
             </div>
-            <Link href="/research" className="group inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
+            <Link href="/research" className="group inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
               Full research archive <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Reveal>
@@ -73,7 +73,7 @@ export default function AILabPage() {
                     </span>
                   </div>
                   <h3 className="font-display mt-4 text-[16px] font-bold text-white light:text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{item.text}</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{item.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -89,7 +89,7 @@ export default function AILabPage() {
               <p className="font-display relative text-xl font-bold text-white sm:text-2xl light:text-slate-900">
                 The lab rule: <span className="text-gradient">ship the ugly version first.</span>
               </p>
-              <p className="relative mx-auto mt-3 max-w-xl text-[14px] leading-relaxed text-slate-400 light:text-slate-600">
+              <p className="relative mx-auto mt-3 max-w-xl text-[14px] leading-relaxed text-slate-300 light:text-slate-600">
                 Every polished project on this site started as a lab mess. If you&apos;re building with AI
                 and want to compare notes — my inbox is open.
               </p>

@@ -40,7 +40,7 @@ function Currently() {
                   <span className={`relative h-2.5 w-2.5 rounded-full ${c.dot}`} />
                 </span>
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500">{c.title}</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-300">{c.title}</p>
                   <p className="mt-1 text-[13px] font-medium leading-snug text-slate-200 light:text-slate-700">{c.text}</p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ function LabTeaser() {
                   {a.icon}
                 </span>
                 <h3 className="font-display mt-4 text-[15.5px] font-bold text-white light:text-slate-900">{a.title}</h3>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{a.text}</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{a.text}</p>
               </div>
             </Reveal>
           ))}
@@ -110,11 +110,11 @@ function LearningSnapshot() {
             <h2 className="font-display mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl light:text-slate-900">
               Evidence over <span className="text-gradient-cyan">claims.</span>
             </h2>
-            <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-400 light:text-slate-600">
+            <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-300 light:text-slate-600">
               Every course ends in something built; every build ends in something written. My{" "}
-              <Link href="/learning" className="font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">learning page</Link>{" "}
+              <Link href="/learning" className="font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">learning page</Link>{" "}
               tracks what I learned → what I built → how I used it. My{" "}
-              <Link href="/research" className="font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">research notes</Link>{" "}
+              <Link href="/research" className="font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">research notes</Link>{" "}
               hold the technical detail.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -133,7 +133,7 @@ function LearningSnapshot() {
                   <p className="font-display text-4xl font-extrabold text-white sm:text-5xl light:text-slate-900">
                     <CountUp end={s.end} suffix={s.suffix} />
                   </p>
-                  <p className="mt-2 text-[12px] font-semibold uppercase tracking-wider text-slate-500">{s.label}</p>
+                  <p className="mt-2 text-[12px] font-semibold uppercase tracking-wider text-slate-300">{s.label}</p>
                 </div>
               </Reveal>
             ))}
@@ -159,11 +159,11 @@ function GoalsPreview({ goals }: { goals: { title: string; detail: string }[] })
           {list.map((g, i) => (
             <Reveal key={g.title} delay={i * 80}>
               <div className="glass card-hover h-full rounded-3xl p-6">
-                <span className="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-cyan-300">
+                <span className="font-display text-[12px] font-bold uppercase tracking-[0.16em] text-cyan-200">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-2 text-[15.5px] font-bold text-white light:text-slate-900">{g.title}</h3>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{g.detail}</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{g.detail}</p>
               </div>
             </Reveal>
           ))}
@@ -172,7 +172,7 @@ function GoalsPreview({ goals }: { goals: { title: string; detail: string }[] })
           <div className="mt-8 text-center">
             <Link
               href="/goals"
-              className="group inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800"
+              className="group inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800"
             >
               See 1-year + long-term goals
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -203,7 +203,7 @@ function Updates({ updates }: { updates: { date: string; title: string; text: st
                 </span>
                 <div>
                   <h3 className="font-display text-[14.5px] font-bold text-white light:text-slate-900">{u.title}</h3>
-                  <p className="mt-1 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{u.text}</p>
+                  <p className="mt-1 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{u.text}</p>
                 </div>
               </div>
             </Reveal>
@@ -240,7 +240,7 @@ function RecentArticles({ posts }: { posts: { slug: string; title: string; excer
                 Fresh from the <span className="text-gradient-cyan">notebook.</span>
               </h2>
             </div>
-            <Link href="/writing" className="group inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
+            <Link href="/writing" className="group inline-flex items-center gap-2 text-[14px] font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
               All articles <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -253,8 +253,8 @@ function RecentArticles({ posts }: { posts: { slug: string; title: string; excer
                   {p.category}
                 </span>
                 <h3 className="font-display mt-3 text-[15.5px] font-bold leading-snug text-white light:text-slate-900">{p.title}</h3>
-                <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{p.excerpt}</p>
-                <p className="mt-3 text-[12px] font-medium text-slate-500">{p.date} • {p.readTime}</p>
+                <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{p.excerpt}</p>
+                <p className="mt-3 text-[12px] font-medium text-slate-300">{p.date} • {p.readTime}</p>
               </Link>
             </Reveal>
           ))}

@@ -34,13 +34,13 @@ export default async function Achievements() {
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400/25 to-cyan-500/25 text-emerald-300 light:text-emerald-700">
                   <CheckIcon className="h-4 w-4" />
                 </span>
-                <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-500">
+                <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-300">
                   {a.org}
                 </p>
                 <h3 className="font-display mt-1 text-[15px] font-bold leading-snug text-white light:text-slate-900">
                   {a.title}
                 </h3>
-                <p className="mt-1.5 text-[12.5px] leading-relaxed text-slate-500">{a.note}</p>
+                <p className="mt-1.5 text-[12.5px] leading-relaxed text-slate-300">{a.note}</p>
               </div>
             </Reveal>
           ))}

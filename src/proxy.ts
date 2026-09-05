@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@insforge/sdk/ssr/middleware";
 
-const PUBLIC_ADMIN_PATHS = ["/admin/login", "/admin/setup"];
+const PUBLIC_ADMIN_PATHS = ["/admin/login"];
 
 export async function proxy(request: NextRequest) {
   const response = NextResponse.next({ request });

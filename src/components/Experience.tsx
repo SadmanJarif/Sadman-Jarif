@@ -75,15 +75,15 @@ export default async function Experience() {
                         Current
                       </span>
                     )}
-                    <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-500">
+                    <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-300">
                       {r.time} • {r.place}
                     </span>
                   </div>
                   <h3 className="font-display mt-2.5 text-lg font-bold leading-snug text-white sm:text-xl light:text-slate-900">
-                    {r.role} <span className="text-slate-500">—</span>{" "}
+                    {r.role} <span className="text-slate-300">—</span>{" "}
                     <span className="text-gradient-cyan">{r.org}</span>
                   </h3>
-                  <p className="mt-2.5 text-[14px] leading-relaxed text-slate-400 light:text-slate-600">{r.text}</p>
+                  <p className="mt-2.5 text-[14px] leading-relaxed text-slate-300 light:text-slate-600">{r.text}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {r.points.map((p) => (
                       <span
@@ -103,7 +103,7 @@ export default async function Experience() {
                 <p className="font-display text-[15px] font-bold text-slate-300 light:text-slate-700">
                   Next chapter — loading…
                 </p>
-                <p className="mt-1 text-[13.5px] text-slate-500">
+                <p className="mt-1 text-[13.5px] text-slate-300">
                   Actively seeking internships, collaborations and AI/software opportunities for 2026 and beyond.
                 </p>
               </div>

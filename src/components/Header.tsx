@@ -47,15 +47,17 @@ export default function Header({
           }`}
         >
           <Link href="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3">
-            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-indigo-500 to-fuchsia-500 text-[15px] font-extrabold text-white shadow-[0_8px_24px_-6px_rgba(99,102,241,0.7)]">
-              SJ
-              <span className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/25" />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/favicon.jpg"
+              alt="Sadman Mubassir Jarif logo"
+              className="h-9 w-9 shrink-0 rounded-xl object-cover shadow-[0_8px_24px_-6px_rgba(99,102,241,0.7)] ring-1 ring-inset ring-white/25"
+            />
             <span className="hidden leading-tight min-[400px]:block">
               <span className="font-display block text-[13.5px] font-bold tracking-tight text-white light:text-slate-900">
                 Sadman M. Jarif
               </span>
-              <span className="block text-[11px] font-medium tracking-wide text-slate-400 light:text-slate-500">
+              <span className="block text-[11px] font-medium tracking-wide text-slate-300 light:text-slate-500">
                 AI • Software • Ventures
               </span>
             </span>
@@ -69,7 +71,7 @@ export default function Header({
                 className={`rounded-full px-3.5 py-2 text-[13px] font-medium transition-all duration-300 ${
                   isActive(link.href)
                     ? "bg-white/[0.08] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] light:bg-slate-900/[0.06] light:text-slate-900 light:shadow-none"
-                    : "text-slate-400 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.05] light:hover:text-slate-900"
+                    : "text-slate-300 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.05] light:hover:text-slate-900"
                 }`}
               >
                 {link.label}
@@ -85,7 +87,7 @@ export default function Header({
                 className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium transition-all duration-300 ${
                   moreActive || moreOpen
                     ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900"
-                    : "text-slate-400 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.05] light:hover:text-slate-900"
+                    : "text-slate-300 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.05] light:hover:text-slate-900"
                 }`}
                 aria-expanded={moreOpen}
               >
@@ -120,7 +122,7 @@ export default function Header({
                       <span className={`block text-[13.5px] font-semibold ${isActive(link.href) ? "text-white light:text-slate-900" : "text-slate-200 light:text-slate-700"}`}>
                         {link.label}
                       </span>
-                      <span className="block text-[11.5px] text-slate-500">{link.desc}</span>
+                      <span className="block text-[11.5px] text-slate-300">{link.desc}</span>
                     </Link>
                   ))}
                 </div>
@@ -129,13 +131,6 @@ export default function Header({
           </div>
 
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-            <span className="mr-1 hidden items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.07] px-3 py-1.5 text-[11.5px] font-medium text-emerald-200 md:inline-flex light:border-emerald-600/25 light:bg-emerald-600/[0.08] light:text-emerald-700">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400 light:bg-emerald-600" />
-              </span>
-              Open to work
-            </span>
             <ThemeToggle />
             <Link
               href="/contact"
@@ -172,10 +167,10 @@ export default function Header({
           <div className="glass-strong max-h-[80vh] overflow-y-auto rounded-2xl p-3 shadow-2xl">
             <div className="grid gap-1">
               <div className="flex items-center justify-between rounded-xl px-4 py-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 light:text-slate-500">
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300 light:text-slate-500">
                   Appearance
                 </span>
-                <span className="flex items-center gap-2 text-[13px] font-medium text-slate-400 light:text-slate-600">
+                <span className="flex items-center gap-2 text-[13px] font-medium text-slate-300 light:text-slate-600">
                   <ThemeToggle />
                 </span>
               </div>
@@ -193,7 +188,7 @@ export default function Header({
                   {link.label}
                 </Link>
               ))}
-              <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">
+              <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300">
                 More
               </p>
               <div className="grid grid-cols-2 gap-1">
@@ -205,7 +200,7 @@ export default function Header({
                     className={`rounded-xl px-4 py-2.5 text-[13.5px] font-medium transition-colors ${
                       isActive(link.href)
                         ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900"
-                        : "text-slate-400 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"
+                        : "text-slate-300 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"
                     }`}
                   >
                     {link.label}

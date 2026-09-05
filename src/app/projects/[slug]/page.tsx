@@ -65,7 +65,7 @@ export default async function ProjectDetailPage({
   const others = all.filter((x) => x.slug !== p.slug).slice(0, 2);
 
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <section className="relative overflow-hidden pb-10 pt-32 sm:pt-40">
         <div className="pointer-events-none absolute inset-0">
           <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-60`} />
@@ -73,7 +73,7 @@ export default async function ProjectDetailPage({
         </div>
         <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
           <Reveal>
-            <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[12.5px] font-medium text-slate-500">
+            <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[12.5px] font-medium text-slate-300">
               <Link href="/" className="transition-colors hover:text-cyan-300">Home</Link>
               <span className="text-slate-700">/</span>
               <Link href="/projects" className="transition-colors hover:text-cyan-300">Projects</Link>
@@ -91,7 +91,7 @@ export default async function ProjectDetailPage({
                   {c}
                 </span>
               ))}
-              <span className="text-[12px] font-medium text-slate-500">{p.year}</span>
+              <span className="text-[12px] font-medium text-slate-300">{p.year}</span>
             </div>
             <h1 className="font-display mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl light:text-slate-900">
               {p.title}
@@ -156,7 +156,7 @@ export default async function ProjectDetailPage({
                   { t: "Solution", d: p.solution },
                 ].map((b) => (
                   <div key={b.t} className="glass rounded-2xl p-5">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-300 light:text-cyan-800">{b.t}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-cyan-200 light:text-cyan-800">{b.t}</p>
                     <p className="mt-2 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{b.d}</p>
                   </div>
                 ))}
@@ -208,10 +208,10 @@ export default async function ProjectDetailPage({
           <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
             <Reveal>
               <div className="glass rounded-2xl p-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">On this page</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300">On this page</p>
                 <div className="mt-3 grid gap-1.5 text-[13px] font-medium">
                   {[["overview", "Overview"], ["role", "My role"], ["features", "Features"], ["challenges", "Challenges"], ["learned", "What I learned"], ["future", "Future"]].map(([id, label]) => (
-                    <a key={id} href={`#${id}`} className="rounded-lg px-3 py-1.5 text-slate-400 transition-colors hover:bg-white/[0.05] hover:text-white light:text-slate-500 light:hover:bg-slate-900/[0.05] light:hover:text-slate-900">
+                    <a key={id} href={`#${id}`} className="rounded-lg px-3 py-1.5 text-slate-300 transition-colors hover:bg-white/[0.05] hover:text-white light:text-slate-500 light:hover:bg-slate-900/[0.05] light:hover:text-slate-900">
                       {label}
                     </a>
                   ))}
@@ -220,7 +220,7 @@ export default async function ProjectDetailPage({
             </Reveal>
             <Reveal delay={80}>
               <div className="glass rounded-2xl p-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">Stack</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300">Stack</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {p.tech.map((t) => (
                     <span key={t} className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-[11.5px] font-medium text-slate-300 light:border-slate-900/10 light:bg-slate-900/[0.03] light:text-slate-600">

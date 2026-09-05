@@ -109,7 +109,7 @@ export default function Contact({ content }: { content?: Partial<ContactContent>
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Jane Cooper"
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:bg-white light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20"
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-400 outline-none transition-all focus:border-cyan-400/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:bg-white light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20"
                     />
                   </div>
                   <div>
@@ -123,7 +123,7 @@ export default function Contact({ content }: { content?: Partial<ContactContent>
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="jane@company.com"
-                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:bg-white light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20"
+                      className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-400 outline-none transition-all focus:border-cyan-400/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:bg-white light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20"
                     />
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export default function Contact({ content }: { content?: Partial<ContactContent>
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Tell me about your project, idea, or opportunity…"
-                      className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:bg-white light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20"
+                      className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-400 outline-none transition-all focus:border-cyan-400/50 focus:bg-white/[0.07] focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:bg-white light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20"
                     />
                   </div>
                   <button
@@ -152,7 +152,7 @@ export default function Contact({ content }: { content?: Partial<ContactContent>
                       "Send Message"
                     )}
                   </button>
-                  <p className="text-center text-[12px] text-slate-600">
+                  <p className="text-center text-[12px] text-slate-200">
                     Prefer email directly? {emailUser}
                   </p>
                 </form>

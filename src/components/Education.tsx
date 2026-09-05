@@ -55,7 +55,7 @@ export default async function Education() {
               <div className="glass card-hover relative h-full overflow-hidden rounded-3xl p-7 sm:p-8">
                 <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${ACCENTS[i % ACCENTS.length]}`} />
                 <div className="flex items-start justify-between gap-3">
-                  <span className="font-display text-[13px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                  <span className="font-display text-[13px] font-bold uppercase tracking-[0.16em] text-slate-300">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span
@@ -70,8 +70,8 @@ export default async function Education() {
                 </div>
                 <h3 className="font-display mt-3 text-xl font-bold text-white sm:text-2xl light:text-slate-900">{e.school}</h3>
                 <p className="mt-1 text-[14px] font-semibold text-cyan-200/90 light:text-cyan-800">{e.degree}</p>
-                <p className="mt-1 text-[13px] font-medium text-slate-500">{e.meta}</p>
-                <p className="mt-4 text-[14px] leading-relaxed text-slate-400 light:text-slate-600">{e.text}</p>
+                <p className="mt-1 text-[13px] font-medium text-slate-300">{e.meta}</p>
+                <p className="mt-4 text-[14px] leading-relaxed text-slate-300 light:text-slate-600">{e.text}</p>
               </div>
             </Reveal>
           ))}
@@ -86,7 +86,7 @@ export default async function Education() {
                 <h3 className="font-display text-lg font-bold text-white sm:text-xl light:text-slate-900">
                   Beyond the classroom
                 </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-slate-400 light:text-slate-600">
+                <p className="mt-2 text-[14px] leading-relaxed text-slate-300 light:text-slate-600">
                   I&apos;ve completed learning programs and coursework from world-class institutions
                   — not to collect certificates, but to think better and build better.
                 </p>

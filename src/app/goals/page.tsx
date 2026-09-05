@@ -30,7 +30,7 @@ function GoalGroup({
           <h2 className="font-display text-xl font-bold text-white sm:text-2xl light:text-slate-900">{label}</h2>
           <span className={`h-1 flex-1 rounded-full bg-gradient-to-r ${accent}`} />
         </div>
-        <p className="mt-2 max-w-2xl text-[13.5px] text-slate-500">{note}</p>
+        <p className="mt-2 max-w-2xl text-[13.5px] text-slate-300">{note}</p>
       </Reveal>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {items.map((g, i) => (
@@ -40,7 +40,7 @@ function GoalGroup({
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-display mt-2 text-[16px] font-bold text-white light:text-slate-900">{g.title}</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{g.detail}</p>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{g.detail}</p>
             </div>
           </Reveal>
         ))}
@@ -52,7 +52,7 @@ function GoalGroup({
 export default async function GoalsPage() {
   const GOALS = await getGoals();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="Goals"
         title="An honest"

@@ -53,7 +53,7 @@ export default function CurrentFocus() {
                 <h3 className="font-display mt-4 text-[15.5px] font-bold leading-snug text-white light:text-slate-900">
                   {f.title}
                 </h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{f.text}</p>
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{f.text}</p>
                 <p className={`mt-4 inline-block rounded-full bg-gradient-to-r ${f.accent} bg-clip-text text-[12px] font-bold uppercase tracking-wider text-transparent`}>
                   {f.detail}
                 </p>

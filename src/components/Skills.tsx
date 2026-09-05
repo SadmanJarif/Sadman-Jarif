@@ -31,7 +31,7 @@ export default function Skills({ groups = SKILLS }: { groups?: SkillGroup[] }) {
                 className={`rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-300 ${
                   active === i
                     ? "bg-gradient-to-r from-cyan-500 to-violet-600 text-white shadow-[0_10px_30px_-8px_rgba(99,102,241,0.6)]"
-                    : "border border-white/10 bg-white/[0.04] text-slate-400 hover:border-white/20 hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-600 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900"
+                    : "border border-white/10 bg-white/[0.04] text-slate-300 hover:border-white/20 hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-600 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900"
                 }`}
               >
                 {s.category}
@@ -45,7 +45,7 @@ export default function Skills({ groups = SKILLS }: { groups?: SkillGroup[] }) {
             <div className={`h-1.5 w-24 rounded-full bg-gradient-to-r ${current.accent}`} />
             <div className="mt-4 flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="font-display text-xl font-bold text-white sm:text-2xl light:text-slate-900">{current.category}</h3>
-              <span className="text-[12.5px] font-medium italic text-slate-500">{current.note}</span>
+              <span className="text-[12.5px] font-medium italic text-slate-300">{current.note}</span>
             </div>
             <div className="mt-5 flex flex-wrap gap-2.5">
               {current.items.map((skill) => (
@@ -68,7 +68,7 @@ export default function Skills({ groups = SKILLS }: { groups?: SkillGroup[] }) {
           ].map((c, i) => (
             <Reveal key={c.t} delay={i * 90}>
               <div className="glass h-full rounded-2xl p-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-300 light:text-cyan-800">{c.t}</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-cyan-200 light:text-cyan-800">{c.t}</p>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-slate-300 light:text-slate-600">{c.d}</p>
               </div>
             </Reveal>

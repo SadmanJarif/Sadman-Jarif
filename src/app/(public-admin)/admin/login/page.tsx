@@ -3,21 +3,16 @@
 import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { loginAction, resetRequestAction, resetConfirmAction } from "@/lib/admin/auth-actions";
-
-type Mode = "login" | "forgot" | "reset";
+import { loginAction } from "@/lib/admin/auth-actions";
+import { ADMIN_EMAIL } from "@/lib/admin/config";
 
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const next = searchParams.get("next") || "/admin";
-  const [mode, setMode] = useState<Mode>("login");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [info, setInfo] = useState("");
 
   const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/admin";
 
@@ -25,25 +20,10 @@ function LoginForm() {
     e.preventDefault();
     setBusy(true);
     setError("");
-    setInfo("");
     try {
-      if (mode === "login") {
-        const r = await loginAction(email, password);
-        if (r.ok) router.push(safeNext);
-        else setError(r.message);
-      } else if (mode === "forgot") {
-        await resetRequestAction(email);
-        setInfo("If that email belongs to the admin account, a 6-digit code is on its way.");
-        setMode("reset");
-      } else {
-        const r = await resetConfirmAction(email, code, password);
-        if (r.ok) {
-          setInfo("Password updated — please log in with the new password.");
-          setMode("login");
-          setPassword("");
-          setCode("");
-        } else setError(r.message);
-      }
+      const r = await loginAction(ADMIN_EMAIL, password);
+      if (r.ok) router.push(safeNext);
+      else setError(r.message);
     } finally {
       setBusy(false);
     }
@@ -65,62 +45,31 @@ function LoginForm() {
         </Link>
 
         <h1 className="font-display mt-7 text-2xl font-extrabold text-white light:text-slate-900">
-          {mode === "login" ? "Welcome back." : mode === "forgot" ? "Reset password." : "Enter the code."}
+          Welcome back.
         </h1>
         <p className="mt-2 text-[13.5px] text-slate-400">
-          {mode === "login"
-            ? "Sign in with the site owner's credentials to manage content."
-            : mode === "forgot"
-              ? "A verification code will be emailed to the admin address."
-              : "Check the admin inbox for the 6-digit code, then set a new password."}
+          Sign in with the site owner&apos;s credentials to manage content.
         </p>
 
         <form onSubmit={submit} className="mt-6 grid gap-4">
           <div>
             <label htmlFor="email" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">Admin email</label>
-            <input id="email" type="email" required autoComplete="username" value={email}
-              onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com"
+            <input id="email" type="email" readOnly value={ADMIN_EMAIL} autoComplete="username"
+              className="w-full cursor-not-allowed rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-[14px] text-slate-400 outline-none light:border-slate-900/15 light:bg-slate-900/[0.03] light:text-slate-500" />
+          </div>
+          <div>
+            <label htmlFor="password" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">
+              Password
+            </label>
+            <input id="password" type="password" required autoComplete="current-password"
+              value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" autoFocus
               className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
           </div>
-          {mode === "reset" && (
-            <div>
-              <label htmlFor="code" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">6-digit code</label>
-              <input id="code" required inputMode="numeric" value={code}
-                onChange={(e) => setCode(e.target.value)} placeholder="123456"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] tracking-[0.3em] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
-            </div>
-          )}
-          {mode !== "forgot" && (
-            <div>
-              <label htmlFor="password" className="mb-1.5 block text-[12.5px] font-semibold text-slate-300 light:text-slate-700">
-                {mode === "reset" ? "New password" : "Password"}
-              </label>
-              <input id="password" type="password" required autoComplete={mode === "reset" ? "new-password" : "current-password"}
-                value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-[14px] text-white placeholder:text-slate-600 outline-none transition-all focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 light:border-slate-900/15 light:bg-white light:text-slate-900 light:placeholder:text-slate-400 light:focus:border-cyan-700/50 light:focus:ring-cyan-700/20" />
-            </div>
-          )}
           {error && <p className="rounded-xl border border-rose-400/25 bg-rose-400/10 px-4 py-2.5 text-[13px] text-rose-200">{error}</p>}
-          {info && <p className="rounded-xl border border-emerald-400/25 bg-emerald-400/10 px-4 py-2.5 text-[13px] text-emerald-200">{info}</p>}
           <button type="submit" disabled={busy} className="btn-primary rounded-xl px-6 py-3.5 text-[14px] font-bold text-white disabled:opacity-60">
-            {busy ? "Working…" : mode === "login" ? "Log in" : mode === "forgot" ? "Send code" : "Set new password"}
+            {busy ? "Working…" : "Log in"}
           </button>
         </form>
-
-        <div className="mt-5 flex items-center justify-between text-[13px]">
-          {mode === "login" ? (
-            <button onClick={() => { setMode("forgot"); setError(""); setInfo(""); }} className="font-medium text-slate-500 transition-colors hover:text-cyan-300">
-              Forgot password?
-            </button>
-          ) : (
-            <button onClick={() => { setMode("login"); setError(""); setInfo(""); }} className="font-medium text-slate-500 transition-colors hover:text-cyan-300">
-              ← Back to login
-            </button>
-          )}
-          <Link href="/admin/setup" className="font-medium text-slate-500 transition-colors hover:text-cyan-300">
-            First time? Set up →
-          </Link>
-        </div>
       </div>
     </main>
   );

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
-import SilkBackground from "./SilkBackground";
 import { ArrowRight, LocationIcon, SparkIcon } from "./Icons";
 
 const TYPING_WORDS = ["AI Agents", "SaaS Products", "Web Apps", "Chatbots", "EdTech"];
@@ -73,16 +72,15 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
 
   return (
     <section id="top" className="relative overflow-hidden pb-16 pt-32 sm:pb-24 sm:pt-40">
-      {/* Background: Silk WebGL shader (dark) / soft gradient orbs (light) */}
+      {/* Background: site-wide Silk shader (dark) / soft gradient orbs (light) */}
       <div className="pointer-events-none absolute inset-0">
-        <SilkBackground className="light:hidden" />
         <div className="absolute inset-0 hidden light:block">
           <div className="grid-bg absolute inset-0" />
           <div className="absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500/20 via-indigo-600/25 to-fuchsia-600/20 blur-[120px] light:from-cyan-300/30 light:via-indigo-300/30 light:to-fuchsia-300/25" />
           <div className="animate-float-slow absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-cyan-500/[0.12] blur-[100px]" />
           <div className="animate-float absolute -right-32 top-24 h-96 w-96 rounded-full bg-violet-600/[0.16] blur-[100px]" />
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#04060d] to-transparent light:from-[#f3f5fa]" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-transparent to-transparent light:from-[#f3f5fa]" />
       </div>
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
@@ -100,10 +98,10 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
           </Reveal>
 
           <Reveal delay={100}>
-            <p className="font-display mt-7 text-[15px] font-semibold tracking-wide text-cyan-300 sm:text-base light:text-cyan-700">
+            <p className="font-display mt-7 text-[15px] font-semibold tracking-wide text-cyan-200 sm:text-base light:text-cyan-700">
               {content.name}
             </p>
-            <p className="mt-1 text-[12.5px] font-semibold uppercase tracking-[0.22em] text-slate-500">
+            <p className="mt-1 text-[12.5px] font-semibold uppercase tracking-[0.22em] text-slate-300">
               {content.roles}
             </p>
           </Reveal>
@@ -116,7 +114,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
               <br />
               <span className="text-white light:text-slate-900">{content.l3}</span>
               <br />
-              <span className="text-[0.62em] font-bold text-slate-400 light:text-slate-500">
+              <span className="text-[0.62em] font-bold text-slate-300 light:text-slate-500">
                 {content.l4.split(" ").slice(0, 1).join(" ")}{" "}
                 <span className="text-gradient-cyan">
                   {content.l4.split(" ").slice(1).join(" ")}
@@ -126,12 +124,12 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
           </Reveal>
 
           <Reveal delay={260}>
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-400 sm:text-[17px] light:text-slate-600">
+            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-[17px] light:text-slate-600">
               {content.description}
             </p>
             <p className="mt-3 flex min-h-[28px] items-center text-[15px] font-medium text-slate-300 light:text-slate-600">
-              <span className="mr-2 text-slate-500">Currently building</span>
-              <span className="typing-caret font-display font-bold text-cyan-300 light:text-cyan-700">{typed}</span>
+              <span className="mr-2 text-slate-300">Currently building</span>
+              <span className="typing-caret font-display font-bold text-cyan-200 light:text-cyan-700">{typed}</span>
             </p>
           </Reveal>
 
@@ -154,11 +152,11 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
           </Reveal>
 
           <Reveal delay={420}>
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-medium text-slate-500">
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] font-medium text-slate-300">
               <span className="inline-flex items-center gap-1.5">
                 <LocationIcon className="h-4 w-4 text-cyan-400" />
                 Based in Bangladesh
-                <span className="text-slate-600">•</span>
+                <span className="text-slate-200">•</span>
                 <span className="text-slate-300 light:text-slate-700">{content.location}</span>
               </span>
             </div>
@@ -173,7 +171,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
                   className="rounded-2xl border border-white/[0.07] bg-white/[0.03] px-3 py-3.5 text-center backdrop-blur-md light:border-slate-900/10 light:bg-white light:shadow-sm"
                 >
                   <div className="font-display text-xl font-extrabold text-white sm:text-2xl light:text-slate-900">{s.n}</div>
-                  <div className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-slate-500">{s.l}</div>
+                  <div className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-slate-300">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -210,46 +208,46 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
                   </div>
                   <div>
                     <p className="font-display text-[16px] font-bold text-white light:text-slate-900">Sadman M. Jarif</p>
-                    <p className="text-[12.5px] text-slate-400 light:text-slate-500">AI / Software Engineer in progress</p>
+                    <p className="text-[12.5px] text-slate-300 light:text-slate-500">AI / Software Engineer in progress</p>
                   </div>
                 </div>
 
                 <div className="mt-5 rounded-2xl border border-white/[0.07] bg-black/40 p-4 font-mono text-[12px] leading-relaxed">
-                  <p className="text-slate-500">{"// mission.ts"}</p>
+                  <p className="text-slate-300">{"// mission.ts"}</p>
                   <p className="mt-1.5">
                     <span className="text-fuchsia-400">const</span>{" "}
-                    <span className="text-cyan-300">mission</span>{" "}
-                    <span className="text-slate-500">=</span>{" "}
+                    <span className="text-cyan-200">mission</span>{" "}
+                    <span className="text-slate-300">=</span>{" "}
                     <span className="text-emerald-300">&quot;CS + AI + Entrepreneurship&quot;</span>;
                   </p>
                   <p>
                     <span className="text-fuchsia-400">const</span>{" "}
-                    <span className="text-cyan-300">focus</span>{" "}
-                    <span className="text-slate-500">=</span>{" "}
+                    <span className="text-cyan-200">focus</span>{" "}
+                    <span className="text-slate-300">=</span>{" "}
                     <span className="text-slate-200">[</span>
                     <span className="text-emerald-300">&quot;agents&quot;</span>
-                    <span className="text-slate-500">,</span>{" "}
+                    <span className="text-slate-300">,</span>{" "}
                     <span className="text-emerald-300">&quot;saas&quot;</span>
-                    <span className="text-slate-500">,</span>{" "}
+                    <span className="text-slate-300">,</span>{" "}
                     <span className="text-emerald-300">&quot;edtech&quot;</span>
                     <span className="text-slate-200">]</span>;
                   </p>
                   <p>
                     <span className="text-violet-400">await</span>{" "}
-                    <span className="text-cyan-300">build</span>
-                    <span className="text-slate-400">(</span>
+                    <span className="text-cyan-200">build</span>
+                    <span className="text-slate-300">(</span>
                     <span className="text-emerald-300">&quot;global impact&quot;</span>
-                    <span className="text-slate-400">)</span>;
+                    <span className="text-slate-300">)</span>;
                   </p>
                 </div>
 
                 <div className="mt-4 grid grid-cols-2 gap-3">
                   <div className="rounded-2xl border border-white/[0.07] bg-white/[0.04] p-3.5 light:border-slate-900/10 light:bg-slate-900/[0.03]">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Stack</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-300">Stack</p>
                     <p className="mt-1 text-[13px] font-semibold text-white light:text-slate-800">Python • React • Flutter</p>
                   </div>
                   <div className="rounded-2xl border border-white/[0.07] bg-white/[0.04] p-3.5 light:border-slate-900/10 light:bg-slate-900/[0.03]">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Obsession</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-300">Obsession</p>
                     <p className="mt-1 text-[13px] font-semibold text-white light:text-slate-800">AI agents & automation</p>
                   </div>
                 </div>
@@ -258,7 +256,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
 
             {/* Floating chips */}
             <div className="animate-float absolute -left-4 top-16 hidden rounded-2xl border border-white/10 bg-[#0c1226]/90 px-4 py-2.5 shadow-xl backdrop-blur-xl light:border-slate-900/10 light:bg-white/95 light:shadow-[0_16px_40px_-16px_rgba(15,23,42,0.3)] sm:block">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-cyan-300 light:text-cyan-700">◆ AI Agent</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-cyan-200 light:text-cyan-700">◆ AI Agent</p>
               <p className="text-[12px] font-medium text-slate-300 light:text-slate-600">Task completed ✓</p>
             </div>
             <div className="animate-float-slow absolute -right-3 bottom-20 hidden rounded-2xl border border-white/10 bg-[#0c1226]/90 px-4 py-2.5 shadow-xl backdrop-blur-xl light:border-slate-900/10 light:bg-white/95 light:shadow-[0_16px_40px_-16px_rgba(15,23,42,0.3)] sm:block">
@@ -273,7 +271,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
       <div className="relative mx-auto mt-14 flex justify-center">
         <a
           href="#about"
-          className="flex flex-col items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 transition-colors hover:text-slate-300 light:text-slate-500 light:hover:text-slate-800"
+          className="flex flex-col items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200 transition-colors hover:text-slate-300 light:text-slate-500 light:hover:text-slate-800"
         >
           Scroll
           <span className="flex h-9 w-6 items-start justify-center rounded-full border border-white/15 p-1.5 light:border-slate-900/20">

@@ -26,7 +26,7 @@ const ERA_ACCENTS = [
 export default async function JourneyPage() {
   const JOURNEY_MILESTONES = await getJourney();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="Journey / Timeline"
         title="Milestones,"
@@ -50,14 +50,14 @@ export default async function JourneyPage() {
                       <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[10.5px] font-bold uppercase tracking-widest text-cyan-200">
                         {m.era}
                       </span>
-                      <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-500">
+                      <span className="text-[12px] font-semibold uppercase tracking-wider text-slate-300">
                         {m.period}
                       </span>
                     </div>
                     <h2 className="font-display mt-3 text-lg font-bold leading-snug text-white sm:text-xl light:text-slate-900">
                       {m.title}
                     </h2>
-                    <p className="mt-2.5 text-[14px] leading-relaxed text-slate-400 light:text-slate-600">{m.text}</p>
+                    <p className="mt-2.5 text-[14px] leading-relaxed text-slate-300 light:text-slate-600">{m.text}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {m.tags.map((t) => (
                         <span key={t} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[12px] font-medium text-slate-300 light:border-slate-900/10 light:bg-white light:text-slate-600 light:shadow-sm">
@@ -74,7 +74,7 @@ export default async function JourneyPage() {
           <Reveal delay={100}>
             <div className="mt-8 rounded-3xl border border-dashed border-white/15 bg-white/[0.015] p-7 text-center">
               <p className="font-display text-[16px] font-bold text-slate-200 light:text-slate-800">This timeline is still being written.</p>
-              <p className="mx-auto mt-2 max-w-md text-[13.5px] text-slate-500">
+              <p className="mx-auto mt-2 max-w-md text-[13.5px] text-slate-300">
                 The next milestones — deeper expertise, international education, companies with real users — are the ones I&apos;m working on now.
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3">

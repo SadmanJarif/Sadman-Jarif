@@ -23,7 +23,7 @@ const SECTIONS: { key: "learning" | "building" | "reading" | "workingOn" | "prep
 export default async function NowPage() {
   const NOW_DATA = await getNow();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow={`Now • Last updated ${NOW_DATA.updated}`}
         title="What I'm doing"
@@ -53,10 +53,10 @@ export default async function NowPage() {
           ))}
         </div>
         <Reveal delay={120}>
-          <p className="mx-auto mt-10 max-w-xl px-5 text-center text-[13px] text-slate-500">
+          <p className="mx-auto mt-10 max-w-xl px-5 text-center text-[13px] text-slate-300">
             Inspired by the <span className="font-semibold text-slate-300 light:text-slate-700">/now</span> movement — personal
             sites with a public current status.{" "}
-            <Link href="/goals" className="font-semibold text-cyan-300 hover:text-cyan-200">
+            <Link href="/goals" className="font-semibold text-cyan-200 hover:text-cyan-200">
               See where this is heading →
             </Link>
           </p>

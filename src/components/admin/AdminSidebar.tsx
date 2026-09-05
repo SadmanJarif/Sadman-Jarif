@@ -20,7 +20,8 @@ export default function AdminSidebar({ email }: { email: string }) {
   const nav = (
     <div className="flex h-full flex-col gap-6 overflow-y-auto p-4">
       <Link href="/admin" onClick={() => setOpen(false)} className="flex items-center gap-3 rounded-2xl px-2 py-1">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-indigo-500 to-fuchsia-500 text-[15px] font-extrabold text-white">SJ</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/favicon.jpg" alt="Admin logo" className="h-10 w-10 shrink-0 rounded-xl object-cover ring-1 ring-inset ring-white/25" />
         <span>
           <span className="font-display block text-[14px] font-bold text-white light:text-slate-900">Admin Console</span>
           <span className="block max-w-[150px] truncate text-[11px] text-slate-500">{email}</span>
@@ -85,7 +86,8 @@ export default function AdminSidebar({ email }: { email: string }) {
       {/* Mobile topbar */}
       <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-white/[0.07] bg-[#04060d]/85 px-4 py-3 backdrop-blur-xl light:border-slate-900/10 light:bg-white/85 lg:hidden">
         <span className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 via-indigo-500 to-fuchsia-500 text-[13px] font-extrabold text-white">SJ</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/favicon.jpg" alt="Admin logo" className="h-8 w-8 rounded-lg object-cover ring-1 ring-inset ring-white/25" />
           <span className="font-display text-[14px] font-bold text-white light:text-slate-900">Admin</span>
         </span>
         <div className="flex items-center gap-2">

@@ -38,7 +38,7 @@ export default async function Projects() {
                   <h3 className="font-display text-[17px] font-bold leading-snug text-white transition-colors group-hover:text-cyan-100 light:text-slate-900 light:group-hover:text-cyan-800">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-slate-400 light:text-slate-600">
+                  <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-slate-300 light:text-slate-600">
                     {p.description}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
@@ -75,10 +75,10 @@ export default async function Projects() {
         </div>
 
         <Reveal delay={150}>
-          <p className="mx-auto mt-8 max-w-xl text-center text-[13.5px] text-slate-500">
+          <p className="mx-auto mt-8 max-w-xl text-center text-[13.5px] text-slate-300">
             More experiments, prototypes and client builds live on GitHub — this grid only shows the
             highlights.{" "}
-              <a href="https://github.com/" target="_blank" rel="noreferrer" className="font-semibold text-cyan-300 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
+              <a href="https://github.com/" target="_blank" rel="noreferrer" className="font-semibold text-cyan-200 hover:text-cyan-200 light:text-cyan-700 light:hover:text-cyan-800">
               Explore all →
             </a>
           </p>

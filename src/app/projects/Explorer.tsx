@@ -43,7 +43,7 @@ export default function ProjectsExplorer({ projects }: { projects: ExplorerProje
                 className={`rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all duration-300 ${
                   filter === c
                     ? "bg-gradient-to-r from-cyan-500 to-violet-600 text-white shadow-[0_10px_30px_-8px_rgba(99,102,241,0.6)]"
-                    : "border border-white/10 bg-white/[0.04] text-slate-400 hover:border-white/20 hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-600 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900"
+                    : "border border-white/10 bg-white/[0.04] text-slate-300 hover:border-white/20 hover:text-white light:border-slate-900/10 light:bg-white light:text-slate-600 light:shadow-sm light:hover:border-slate-900/25 light:hover:text-slate-900"
                 }`}
               >
                 {c}
@@ -67,14 +67,14 @@ export default function ProjectsExplorer({ projects }: { projects: ExplorerProje
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">{p.year}</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-300">{p.year}</p>
                   <Link href={`/projects/${p.slug}`}>
                     <h2 className="font-display mt-1 text-[17px] font-bold leading-snug text-white transition-colors group-hover:text-cyan-100 light:text-slate-900 light:group-hover:text-cyan-800">
                       {p.title}
                     </h2>
                   </Link>
                   <p className="mt-1 text-[12.5px] font-medium text-cyan-200/70 light:text-cyan-800">{p.tagline}</p>
-                  <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-slate-400 light:text-slate-600">{p.description}</p>
+                  <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-slate-300 light:text-slate-600">{p.description}</p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
                     {p.categories.map((c) => (
                       <span key={c} className="rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-[11.5px] font-medium text-slate-300 light:border-slate-900/10 light:bg-slate-900/[0.03] light:text-slate-600">

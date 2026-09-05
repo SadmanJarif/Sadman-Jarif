@@ -1013,6 +1013,7 @@ export function FooterCta({
   flameHeight = 260,
   className,
   onSubscribe,
+  showForm = true,
 }: {
   eyebrow?: string
   heading?: string
@@ -1024,6 +1025,8 @@ export function FooterCta({
   className?: string
   /** Called with the validated email on submit (e.g. a newsletter server action) */
   onSubscribe?: (email: string) => void
+  /** Set false to render the CTA without the email capture form */
+  showForm?: boolean
 }) {
   return (
     <footer
@@ -1041,7 +1044,9 @@ export function FooterCta({
         <p className="mt-5 max-w-md text-pretty text-[15px] leading-relaxed text-[#A8A3C7]">
           {sub}
         </p>
-        <WaitlistInput className="mt-9" buttonLabel="Subscribe" placeholder="you@example.com" successMessage="You're in. I'll be in touch." onSubmit={onSubscribe} />
+        {showForm && (
+          <WaitlistInput className="mt-9" buttonLabel="Subscribe" placeholder="you@example.com" successMessage="You're in. I'll be in touch." onSubmit={onSubscribe} />
+        )}
 
         <div className="mt-24 flex w-full flex-col items-center gap-4 border-t border-white/10 pt-6 text-[13px] text-[#A8A3C7] sm:flex-row sm:justify-between">
           <span className="font-averia italic">{brand}</span>

@@ -47,7 +47,7 @@ export default function About({
                   className={
                     i === 0
                       ? "font-display text-lg font-bold text-white sm:text-xl light:text-slate-900"
-                      : "mt-4 text-[14.5px] leading-relaxed text-slate-400 light:text-slate-600"
+                      : "mt-4 text-[14.5px] leading-relaxed text-slate-300 light:text-slate-600"
                   }
                 >
                   {p}
@@ -71,11 +71,11 @@ export default function About({
             {TRAITS.map((t, i) => (
               <Reveal key={t.title} delay={i * 90}>
                 <div className="glass card-hover h-full rounded-3xl p-6">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/25 to-violet-600/25 text-cyan-300 light:text-cyan-700">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/25 to-violet-600/25 text-cyan-200 light:text-cyan-700">
                     <CheckIcon className="h-4 w-4" />
                   </span>
                   <h3 className="font-display mt-4 text-[15px] font-bold text-white light:text-slate-900">{t.title}</h3>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{t.text}</p>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 light:text-slate-600">{t.text}</p>
                 </div>
               </Reveal>
             ))}
