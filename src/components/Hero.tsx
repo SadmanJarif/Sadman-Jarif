@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
+import SilkBackground from "./SilkBackground";
 import { ArrowRight, LocationIcon, SparkIcon } from "./Icons";
 
 const TYPING_WORDS = ["AI Agents", "SaaS Products", "Web Apps", "Chatbots", "EdTech"];
@@ -72,12 +73,15 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
 
   return (
     <section id="top" className="relative overflow-hidden pb-16 pt-32 sm:pb-24 sm:pt-40">
-      {/* Background */}
+      {/* Background: Silk WebGL shader (dark) / soft gradient orbs (light) */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="grid-bg absolute inset-0" />
-        <div className="absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500/20 via-indigo-600/25 to-fuchsia-600/20 blur-[120px] light:from-cyan-300/30 light:via-indigo-300/30 light:to-fuchsia-300/25" />
-        <div className="animate-float-slow absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-cyan-500/[0.12] blur-[100px]" />
-        <div className="animate-float absolute -right-32 top-24 h-96 w-96 rounded-full bg-violet-600/[0.16] blur-[100px]" />
+        <SilkBackground className="light:hidden" />
+        <div className="absolute inset-0 hidden light:block">
+          <div className="grid-bg absolute inset-0" />
+          <div className="absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-r from-cyan-500/20 via-indigo-600/25 to-fuchsia-600/20 blur-[120px] light:from-cyan-300/30 light:via-indigo-300/30 light:to-fuchsia-300/25" />
+          <div className="animate-float-slow absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-cyan-500/[0.12] blur-[100px]" />
+          <div className="animate-float absolute -right-32 top-24 h-96 w-96 rounded-full bg-violet-600/[0.16] blur-[100px]" />
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#04060d] to-transparent light:from-[#f3f5fa]" />
       </div>
 

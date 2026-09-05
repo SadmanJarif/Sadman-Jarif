@@ -5,7 +5,7 @@
  */
 import { cache } from "react";
 import type { Metadata } from "next";
-import { insforge } from "./insforge";
+import { insforge, isInsforgeConfigured } from "./insforge";
 import { PROJECTS as STATIC_PROJECTS, SKILLS as STATIC_SKILLS, WRITING as STATIC_WRITING, SITE_NAV as STATIC_NAV, MORE_LINKS as STATIC_MORE, SOCIALS as STATIC_SOCIALS } from "@/data/portfolio";
 import { PROJECT_DETAILS as STATIC_DETAILS } from "@/data/projects";
 import { POSTS as STATIC_POSTS } from "@/data/writing";
@@ -23,6 +23,7 @@ const num = (v: unknown, fb = 0): number => (typeof v === "number" ? v : fb);
 const bool = (v: unknown): boolean => v === true;
 
 async function table(name: string, orderBy = "sort"): Promise<Row[]> {
+  if (!isInsforgeConfigured) throw new Error("InsForge not configured — using static fallback");
   const { data, error } = await insforge.database.from(name).select("*").order(orderBy, { ascending: true }).limit(500);
   if (error || !data) throw new Error(error?.message ?? `empty ${name}`);
   return data as Row[];
@@ -307,6 +308,7 @@ export const getResumeStatic = cache(async () => STATIC_RESUME);
 
 export const getNav = cache(async () => {
   try {
+    if (!isInsforgeConfigured) throw new Error("unconfigured");
     const { data, error } = await insforge.database.from("nav_items")
       .select("label,href,location,sort,visible").order("sort", { ascending: true }).limit(200);
     if (error || !data || data.length === 0) throw new Error("empty nav");
@@ -335,6 +337,7 @@ export const getSocials = cache(async () => {
 
 export const getSettings = cache(async (): Promise<Record<string, string>> => {
   try {
+    if (!isInsforgeConfigured) throw new Error("unconfigured");
     const { data, error } = await insforge.database.from("site_settings").select("key,value").limit(200);
     if (error || !data) throw new Error("empty settings");
     const out: Record<string, string> = {};
@@ -347,6 +350,7 @@ export const getSettings = cache(async (): Promise<Record<string, string>> => {
 
 export const getHomepageSections = cache(async (): Promise<string[] | null> => {
   try {
+    if (!isInsforgeConfigured) throw new Error("unconfigured");
     const { data, error } = await insforge.database.from("homepage_sections")
       .select("key,enabled,sort").order("sort", { ascending: true }).limit(50);
     if (error || !data) throw new Error("empty sections");
@@ -375,6 +379,7 @@ export async function seoMeta(path: string, fallback: { title: string; descripti
 }
 export const getSeoFor = cache(async (path: string, fallback: { title: string; description: string }) => {
   try {
+    if (!isInsforgeConfigured) throw new Error("unconfigured");
     const { data, error } = await insforge.database.from("page_seo").select("*").eq("path", path).limit(1);
     const row = ((data as Row[] | null)?.[0]) as Row | undefined;
     if (error || !row) throw new Error("no seo");
