@@ -47,13 +47,13 @@ export default function CurrentFocus() {
             <Reveal key={f.title} delay={i * 90}>
               <div className="glass card-hover relative h-full overflow-hidden rounded-3xl p-6">
                 <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${f.accent}`} />
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] text-lg text-white">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] text-lg text-white light:bg-slate-900/[0.05] light:text-slate-700">
                   {f.icon}
                 </span>
-                <h3 className="font-display mt-4 text-[15.5px] font-bold leading-snug text-white">
+                <h3 className="font-display mt-4 text-[15.5px] font-bold leading-snug text-white light:text-slate-900">
                   {f.title}
                 </h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-400">{f.text}</p>
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{f.text}</p>
                 <p className={`mt-4 inline-block rounded-full bg-gradient-to-r ${f.accent} bg-clip-text text-[12px] font-bold uppercase tracking-wider text-transparent`}>
                   {f.detail}
                 </p>

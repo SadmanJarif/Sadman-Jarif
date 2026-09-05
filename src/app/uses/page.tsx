@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { USES_DATA } from "@/data/site";
+import { getUses, seoMeta } from "@/lib/cms";
 
-export const metadata: Metadata = {
-  title: "My Setup — Sadman Mubassir Jarif",
-  description: "The tools I use for development, AI, productivity, learning, design, and research.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return seoMeta("/uses", {
+    title: "My Setup — Sadman Mubassir Jarif",
+    description: "The tools I use for development, AI, productivity, learning, design, and research.",
+  });
+}
 
-export default function UsesPage() {
+export default async function UsesPage() {
+  const USES_DATA = await getUses();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100">
+    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="My Setup"
         title="Tools I"
@@ -23,12 +26,12 @@ export default function UsesPage() {
           {USES_DATA.map((s, i) => (
             <Reveal key={s.section} delay={(i % 3) * 80}>
               <div className="glass h-full rounded-3xl p-6 sm:p-7">
-                <h2 className="font-display text-[16px] font-bold text-white">{s.section}</h2>
+                <h2 className="font-display text-[16px] font-bold text-white light:text-slate-900">{s.section}</h2>
                 <ul className="mt-4 space-y-3.5">
                   {s.items.map((t) => (
                     <li key={t.name}>
-                      <p className="text-[13.5px] font-bold text-cyan-200">{t.name}</p>
-                      <p className="mt-0.5 text-[12.5px] leading-relaxed text-slate-400">{t.desc}</p>
+                      <p className="text-[13.5px] font-bold text-cyan-200 light:text-cyan-800">{t.name}</p>
+                      <p className="mt-0.5 text-[12.5px] leading-relaxed text-slate-400 light:text-slate-600">{t.desc}</p>
                     </li>
                   ))}
                 </ul>

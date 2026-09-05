@@ -1,7 +1,8 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import { getEca } from "@/lib/cms";
 
-const AREAS = [
+const FALLBACK = [
   { icon: "◉", title: "MUN Participation", text: "Debate, diplomacy and thinking on my feet under pressure." },
   { icon: "♥", title: "Volunteering", text: "Showing up for community projects that needed builders." },
   { icon: "⬢", title: "Leadership Development", text: "Learning to own outcomes, not just complete tasks." },
@@ -12,7 +13,11 @@ const AREAS = [
   { icon: "✦", title: "Global Learning", text: "International programs that widened how I see the world." },
 ];
 
-export default function Leadership() {
+export default async function Leadership() {
+  const rows = await getEca();
+  const AREAS = rows.length > 0
+    ? rows.slice(0, 8).map((r) => ({ icon: r.icon, title: r.title, text: r.did || r.impact }))
+    : FALLBACK;
   return (
     <section id="community" className="relative scroll-mt-28 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -30,8 +35,8 @@ export default function Leadership() {
                 <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/25 to-fuchsia-600/25 text-lg text-violet-200 sm:mx-0">
                   {a.icon}
                 </span>
-                <h3 className="font-display mt-3 text-[14.5px] font-bold text-white">{a.title}</h3>
-                <p className="mt-1 text-[12.5px] leading-relaxed text-slate-400">{a.text}</p>
+                <h3 className="font-display mt-3 text-[14.5px] font-bold text-white light:text-slate-900">{a.title}</h3>
+                <p className="mt-1 line-clamp-3 text-[12.5px] leading-relaxed text-slate-400 light:text-slate-600">{a.text}</p>
               </div>
             </Reveal>
           ))}
@@ -39,7 +44,7 @@ export default function Leadership() {
 
         <Reveal delay={120}>
           <div className="mx-auto mt-8 max-w-3xl rounded-2xl border border-white/[0.08] bg-gradient-to-r from-cyan-500/[0.07] via-violet-600/[0.07] to-fuchsia-500/[0.07] p-6 text-center sm:p-7">
-            <p className="font-display text-[15px] font-bold text-white sm:text-base">
+            <p className="font-display text-[15px] font-bold text-white sm:text-base light:text-slate-900">
               Impact • Curiosity • Leadership • Continuous growth
             </p>
             <p className="mx-auto mt-2 max-w-xl text-[13.5px] leading-relaxed text-slate-400">

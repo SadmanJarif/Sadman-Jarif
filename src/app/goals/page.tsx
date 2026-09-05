@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { GOALS } from "@/data/site";
+import { getGoals, seoMeta } from "@/lib/cms";
 import { ArrowRight } from "@/components/Icons";
 
-export const metadata: Metadata = {
-  title: "Goals — Sadman Mubassir Jarif",
-  description: "An honest personal roadmap: current goals, 1-year goals, and long-term ambitions.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return seoMeta("/goals", {
+    title: "Goals — Sadman Mubassir Jarif",
+    description: "An honest personal roadmap: current goals, 1-year goals, and long-term ambitions.",
+  });
+}
 
 function GoalGroup({
   label,
@@ -25,7 +27,7 @@ function GoalGroup({
     <div>
       <Reveal>
         <div className="flex items-baseline gap-3">
-          <h2 className="font-display text-xl font-bold text-white sm:text-2xl">{label}</h2>
+          <h2 className="font-display text-xl font-bold text-white sm:text-2xl light:text-slate-900">{label}</h2>
           <span className={`h-1 flex-1 rounded-full bg-gradient-to-r ${accent}`} />
         </div>
         <p className="mt-2 max-w-2xl text-[13.5px] text-slate-500">{note}</p>
@@ -37,8 +39,8 @@ function GoalGroup({
               <span className={`font-display bg-gradient-to-r ${accent} bg-clip-text text-[12px] font-bold uppercase tracking-[0.16em] text-transparent`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="font-display mt-2 text-[16px] font-bold text-white">{g.title}</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400">{g.detail}</p>
+              <h3 className="font-display mt-2 text-[16px] font-bold text-white light:text-slate-900">{g.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-slate-400 light:text-slate-600">{g.detail}</p>
             </div>
           </Reveal>
         ))}
@@ -47,9 +49,10 @@ function GoalGroup({
   );
 }
 
-export default function GoalsPage() {
+export default async function GoalsPage() {
+  const GOALS = await getGoals();
   return (
-    <main className="relative min-h-screen bg-[#04060d] text-slate-100">
+    <main className="relative min-h-screen bg-[#04060d] text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
       <PageHero
         eyebrow="Goals"
         title="An honest"

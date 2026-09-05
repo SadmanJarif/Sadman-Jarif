@@ -1,7 +1,48 @@
-# Sadman Mubassir Jarif — Personal Platform
+# Sadman Mubassir Jarif — Personal Platform + Admin Console
 
-Modern, premium personal brand platform built with **Next.js 16 + React 19 + Tailwind CSS v4**.
+Modern, premium personal brand platform built with **Next.js 16 + React 19 + Tailwind CSS v4**,
+backed by **InsForge** (Postgres, Auth, Storage).
 Dark, futuristic, minimal — AI-startup aesthetic with glassmorphism, gradient glows, and scroll-reveal animations.
+
+## Run locally (port 3001)
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3001
+
+## Admin console
+
+The site is fully manageable from **http://localhost:3001/admin** — no code edits needed.
+
+**First-time setup** (one time only):
+
+1. Visit `/admin/setup` and create the owner account (only `sadmanmubassir@gmail.com` can register).
+2. Enter the 6-digit verification code emailed to you.
+3. Log in at `/admin/login` from then on.
+
+After setup, tell your agent to lock public signups
+(`disable_signup` via `insforge.toml` + `config apply`) so no one else can register.
+
+**What the console manages:** dashboard stats + recent activity, CRUD with draft/publish for
+projects, blog posts, experience, education, skills, certifications, ECA, research, updates,
+journey, goals, now/uses pages, ideas + build log, media library (uploads, copy URL, delete),
+navigation (add/reorder/hide), homepage sections (enable/reorder), per-page SEO with search
+previews, site settings (hero, about, vision, contact, socials, footer), and an activity log.
+Every save revalidates the public site automatically.
+
+## Backend (InsForge)
+
+- Project **sadman-portfolio**, region **ap-southeast**.
+- Schema + RLS live in `migrations/` (public reads published content; all writes admin-only
+  via `public.is_admin()`; storage bucket `media` is public-read, admin-write).
+- Seed/update content: `node scripts/seed-cms.ts` (reads the admin key from
+  `.insforge/project.json`, never committed).
+- Shared clients: `src/lib/insforge.ts` (public anon), `src/lib/cms.ts` (DB-first content
+  getters with static fallback), `src/lib/admin/*` (auth guard, generic CRUD, media, settings).
+- Keys live in `.env.local` (gitignored). Never hardcode or commit keys.
 
 ## Run locally (port 3001)
 

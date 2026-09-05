@@ -71,7 +71,7 @@ export function ReadingProgress() {
   }, []);
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[60] h-[3px] bg-white/[0.06]">
+    <div className="fixed inset-x-0 top-0 z-[60] h-[3px] bg-white/[0.06] light:bg-slate-900/[0.08]">
       <div
         className="h-full bg-gradient-to-r from-cyan-400 via-indigo-500 to-fuchsia-500 transition-[width] duration-150"
         style={{ width: `${progress * 100}%` }}
@@ -98,7 +98,7 @@ export function CopyLink({ slug }: { slug: string }) {
     <button
       onClick={copy}
       aria-label="Copy link to section"
-      className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1.5 text-[11.5px] font-semibold text-slate-400 opacity-0 transition-all hover:border-cyan-400/30 hover:text-cyan-200 group-hover:opacity-100"
+      className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1.5 text-[11.5px] font-semibold text-slate-400 opacity-0 transition-all hover:border-cyan-400/30 hover:text-cyan-200 group-hover:opacity-100 light:border-slate-900/15 light:bg-white light:hover:border-cyan-700/40 light:hover:text-cyan-700"
     >
       {copied ? "Copied ✓" : "Copy link"}
     </button>
