@@ -18,16 +18,26 @@ export async function loginAction(email: string, password: string): Promise<Auth
     // Generic message: never reveal which emails are admins.
     return { ok: false, message: "Incorrect email or password." };
   }
-  const auth = createAuthActions({ cookies: await cookies() });
-  const { data, error } = await auth.signInWithPassword({ email: email.trim(), password });
-  if (error || !data?.user) {
-    return { ok: false, message: clean(error?.message ?? "", "Sign in failed. Please try again.") };
+  if (!process.env.NEXT_PUBLIC_INSFORGE_URL || !process.env.NEXT_PUBLIC_INSFORGE_ANON_KEY) {
+    return {
+      ok: false,
+      message: "This deployment is missing its backend connection. Add the InsForge URL and anon key to the hosting env vars and redeploy.",
+    };
   }
-  if (data.user.email?.toLowerCase() !== ADMIN_EMAIL) {
-    await auth.signOut();
-    return { ok: false, message: "Incorrect email or password." };
+  try {
+    const auth = createAuthActions({ cookies: await cookies() });
+    const { data, error } = await auth.signInWithPassword({ email: email.trim(), password });
+    if (error || !data?.user) {
+      return { ok: false, message: clean(error?.message ?? "", "Sign in failed. Please try again.") };
+    }
+    if (data.user.email?.toLowerCase() !== ADMIN_EMAIL) {
+      await auth.signOut();
+      return { ok: false, message: "Incorrect email or password." };
+    }
+    return { ok: true };
+  } catch {
+    return { ok: false, message: "Sign in failed — the backend could not be reached. Please try again." };
   }
-  return { ok: true };
 }
 
 export async function logoutAction(): Promise<void> {
