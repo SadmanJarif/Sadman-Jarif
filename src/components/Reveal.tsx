@@ -15,19 +15,29 @@ export default function Reveal({ children, delay = 0, className = "", as = "div"
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Fallback: reveal after 2.5s even if observer fails
+    const fallback = setTimeout(() => {
+      el.classList.add("is-visible");
+    }, 2500);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            clearTimeout(fallback);
             entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, []);
 
   const Tag = as as "div";

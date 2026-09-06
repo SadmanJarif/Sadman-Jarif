@@ -71,7 +71,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
   const typed = useTyping();
 
   return (
-    <section id="top" className="relative overflow-hidden pb-16 pt-32 sm:pb-24 sm:pt-40">
+    <section id="top" className="relative overflow-hidden pb-16 pt-28 sm:pb-24 sm:pt-40">
       {/* Background: site-wide Silk shader (dark) / soft gradient orbs (light) */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 hidden light:block">
@@ -83,7 +83,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-transparent to-transparent light:from-[#f3f5fa]" />
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8 lg:items-center">
         {/* Left */}
         <div>
           <Reveal>
@@ -160,7 +160,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
                 <span className="text-slate-300 light:text-slate-700">{content.location}</span>
               </span>
             </div>
-            <div className="mt-6 grid max-w-lg grid-cols-3 gap-3">
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
               {[
                 { n: "3+", l: "Intl. Roles" },
                 { n: "6+", l: "AI & Web Builds" },
@@ -179,7 +179,7 @@ export default function Hero({ content: override }: { content?: Partial<HeroCont
         </div>
 
         {/* Right visual */}
-        <Reveal delay={300} className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
+        <Reveal delay={300} className="relative mx-auto w-full max-w-[380px] lg:max-w-none">
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-cyan-500/15 via-violet-600/15 to-fuchsia-500/10 blur-2xl" />
             {/* Main card */}

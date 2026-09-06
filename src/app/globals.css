@@ -145,7 +145,7 @@ html.light body {
   background-size: 22px 22px;
 }
 
-/* Reveal on scroll */
+/* Reveal on scroll — hidden until JS IntersectionObserver fires */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -156,6 +156,11 @@ html.light body {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* No-JS fallback: if scripting is off, show everything */
+@media (scripting: none) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

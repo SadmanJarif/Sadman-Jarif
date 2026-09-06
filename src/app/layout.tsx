@@ -65,7 +65,7 @@ export default async function RootLayout({
 }>) {
   const { main, more } = await getNav();
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -82,6 +82,9 @@ export default async function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('sj-theme');if(t==='light'||(!t&&matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.add('light')}}catch(e){}})()`,
           }}
         />
+        <noscript>
+          <style>{`.reveal{opacity:1!important;transform:none!important;transition:none!important}`}</style>
+        </noscript>
       </head>
       <body className="bg-[#0B1128] text-slate-100 antialiased light:bg-[#f3f5fa] light:text-slate-700">
         <ThemeProvider>
