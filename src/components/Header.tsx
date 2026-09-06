@@ -32,6 +32,16 @@ export default function Header({
     setMoreOpen(false);
   }, [pathname]);
 
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
   const moreActive = more.some((l) => isActive(l.href));
@@ -158,49 +168,61 @@ export default function Header({
           </div>
         </nav>
 
-        {/* Mobile menu */}
-        <div
-          className={`mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl transition-all duration-500 lg:hidden ${
-            open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="glass-strong max-h-[80vh] overflow-y-auto rounded-2xl p-3 shadow-2xl">
-            <div className="grid gap-1">
-              <div className="flex items-center justify-between rounded-xl px-4 py-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300 light:text-slate-500">
-                  Appearance
+        {/* Mobile menu — bottom-anchored sheet with backdrop */}
+        <div className={`lg:hidden ${open ? "" : "pointer-events-none"}`} aria-hidden={!open}>
+          <div
+            onClick={() => setOpen(false)}
+            className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 light:bg-slate-900/30 ${
+              open ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <div
+            className={`fixed inset-x-3 bottom-3 top-auto z-50 mx-auto max-w-6xl transition-all duration-300 ${
+              open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-8 opacity-0"
+            }`}
+          >
+            <div className="glass-strong max-h-[75vh] overflow-y-auto rounded-3xl p-4 shadow-2xl">
+              <div className="mb-2 flex items-center justify-between px-2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                  Menu
                 </span>
-                <span className="flex items-center gap-2 text-[13px] font-medium text-slate-300 light:text-slate-600">
-                  <ThemeToggle />
+                <span className="flex items-center gap-2 text-[12.5px] font-medium text-slate-400 light:text-slate-600">
+                  Theme <ThemeToggle />
                 </span>
               </div>
-              {nav.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`rounded-xl px-4 py-3 text-[14px] font-medium transition-colors ${
-                    isActive(link.href)
-                      ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900"
-                      : "text-slate-300 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-300">
+              <nav className="grid gap-1" aria-label="Mobile">
+                {nav.map((link, i) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    style={{ transitionDelay: open ? `${i * 25}ms` : "0ms" }}
+                    className={`flex items-center justify-between rounded-2xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-300 ${
+                      open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+                    } ${
+                      isActive(link.href)
+                        ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900"
+                        : "text-slate-300 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"
+                    }`}
+                  >
+                    {link.label}
+                    <span aria-hidden className="text-slate-600 light:text-slate-400">→</span>
+                  </Link>
+                ))}
+              </nav>
+              <p className="px-4 pb-1 pt-4 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">
                 More
               </p>
-              <div className="grid grid-cols-2 gap-1">
+              <div className="grid grid-cols-2 gap-1.5">
                 {more.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`rounded-xl px-4 py-2.5 text-[13.5px] font-medium transition-colors ${
+                    className={`rounded-2xl px-4 py-3 text-[13.5px] font-medium transition-colors ${
                       isActive(link.href)
                         ? "bg-white/[0.08] text-white light:bg-slate-900/[0.06] light:text-slate-900"
-                        : "text-slate-300 hover:bg-white/[0.05] hover:text-white light:text-slate-600 light:hover:bg-slate-900/[0.04] light:hover:text-slate-900"
+                        : "bg-white/[0.03] text-slate-400 hover:text-white light:bg-slate-900/[0.03] light:text-slate-600 light:hover:text-slate-900"
                     }`}
                   >
                     {link.label}
@@ -210,7 +232,7 @@ export default function Header({
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="btn-primary mt-2 rounded-xl px-4 py-3 text-center text-[14px] font-semibold text-white"
+                className="btn-primary mt-3 rounded-2xl px-4 py-3.5 text-center text-[15px] font-semibold text-white"
               >
                 Let&apos;s Talk
               </Link>
