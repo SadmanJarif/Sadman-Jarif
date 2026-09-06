@@ -33,7 +33,7 @@ const PHILOSOPHY = [
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="About Me"
         title="A builder from Bangladesh,"

@@ -18,7 +18,7 @@ const FOCUS = ["AI agents", "AI automation", "SaaS", "One-person businesses", "D
 export default async function VenturesPage() {
   const [VENTURE_IDEAS, BUILD_LOG] = await Promise.all([getIdeas(), getBuildLog()]);
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="Entrepreneurship"
         title="I don't just want a job."

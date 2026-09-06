@@ -23,7 +23,7 @@ const SECTIONS: { key: "learning" | "building" | "reading" | "workingOn" | "prep
 export default async function NowPage() {
   const NOW_DATA = await getNow();
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow={`Now • Last updated ${NOW_DATA.updated}`}
         title="What I'm doing"

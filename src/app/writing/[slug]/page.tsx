@@ -45,7 +45,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const { post, related } = found;
 
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <ReadingProgress />
 
       {/* Cover */}

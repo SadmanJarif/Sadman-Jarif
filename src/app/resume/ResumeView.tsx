@@ -20,7 +20,7 @@ export default function ResumeView({ data }: { data: ResumeData }) {
   const print = () => window.print();
 
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="Resume"
         title="The one-page"

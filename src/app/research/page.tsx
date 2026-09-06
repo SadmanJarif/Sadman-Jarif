@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ResearchPage() {
   const notes = await getResearch();
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="Research & Notes"
         title="A personal"

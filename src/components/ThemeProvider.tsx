@@ -20,7 +20,12 @@ function initialTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "dark";
+    // The pre-paint script may already have resolved the theme onto <html>.
+    if (document.documentElement.classList.contains("light")) return "light";
+    return initialTheme();
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

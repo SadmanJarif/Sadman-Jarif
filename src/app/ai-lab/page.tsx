@@ -22,7 +22,7 @@ const KIND_STYLES: Record<string, string> = {
 
 export default function AILabPage() {
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="AI Lab 🧪"
         title="Experiments over"

@@ -26,7 +26,7 @@ const ERA_ACCENTS = [
 export default async function JourneyPage() {
   const JOURNEY_MILESTONES = await getJourney();
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="Journey / Timeline"
         title="Milestones,"

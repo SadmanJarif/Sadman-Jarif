@@ -19,7 +19,7 @@ const ACCENTS = ["from-cyan-400 to-blue-500", "from-violet-400 to-purple-500", "
 export default async function WorkPage() {
   const EXPERIENCE_DETAILS = await getExperience();
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <PageHero
         eyebrow="Work / Experience"
         title="Progressive responsibility,"

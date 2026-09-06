@@ -65,7 +65,7 @@ export default async function ProjectDetailPage({
   const others = all.filter((x) => x.slug !== p.slug).slice(0, 2);
 
   return (
-    <main className="relative min-h-screen text-slate-100 light:bg-[#f3f5fa] light:text-slate-700">
+    <main className="relative min-h-screen text-slate-100 light:text-slate-700">
       <section className="relative overflow-hidden pb-10 pt-32 sm:pt-40">
         <div className="pointer-events-none absolute inset-0">
           <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-60`} />
