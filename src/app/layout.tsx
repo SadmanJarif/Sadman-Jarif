@@ -3,7 +3,7 @@ import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import GlobalSilk from "@/components/GlobalSilk";
-import { getNav } from "@/lib/cms";
+import { getNav, getSettings, getSocials } from "@/lib/cms";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sadmanjarif.xyz"),
@@ -63,7 +63,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { main, more } = await getNav();
+  const [{ main, more }, settings, socials] = await Promise.all([getNav(), getSettings(), getSocials()]);
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
@@ -89,7 +89,7 @@ export default async function RootLayout({
       <body className="bg-[#0B1128] text-slate-100 antialiased light:bg-[#f3f5fa] light:text-slate-700">
         <ThemeProvider>
           <GlobalSilk />
-          <SiteChrome nav={main} more={more}>
+          <SiteChrome nav={main} more={more} settings={settings} socials={socials}>
             {children}
           </SiteChrome>
         </ThemeProvider>

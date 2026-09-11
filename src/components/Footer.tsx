@@ -1,10 +1,22 @@
 import Link from "next/link";
 import { FlameBand } from "./ui/ember-footer-cta";
 import { GithubIcon, LinkedinIcon, MailIcon } from "./Icons";
-import { getNav, getSocials, getSettings } from "@/lib/cms";
 
-export default async function Footer() {
-  const [{ main, more }, socials, settings] = await Promise.all([getNav(), getSocials(), getSettings()]);
+type NavLink = { label: string; href: string; desc?: string };
+
+type Socials = { github: string; linkedin: string; email: string };
+
+export default function Footer({
+  main,
+  more,
+  socials,
+  settings,
+}: {
+  main: NavLink[];
+  more: NavLink[];
+  socials: Socials;
+  settings: Record<string, string>;
+}) {
   const name = settings["profile_name"] || "Sadman Mubassir Jarif";
   const tagline =
     settings["footer_text"] ||
